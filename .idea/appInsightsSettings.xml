@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.depi.taswear" />
+                  <option name="mobileSdkAppId" value="1:1073955112622:android:f753b5e7e6c4eb60c70f3f" />
+                  <option name="projectId" value="tas-collection" />
+                  <option name="projectNumber" value="1073955112622" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
