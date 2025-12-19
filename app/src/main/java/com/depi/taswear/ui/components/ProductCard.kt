@@ -36,7 +36,7 @@ fun ProductCard(
         ) {
             // Product image
             AsyncImage(
-                model = product.imageUrls.firstOrNull() ?: "",
+                model = product.imageUrls.firstOrNull(),
                 contentDescription = product.name,
                 modifier = Modifier
                     .fillMaxWidth()

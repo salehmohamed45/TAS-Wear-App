@@ -95,7 +95,11 @@ class ProductRepository @Inject constructor(
 
     /**
      * Search products by name, description, or brand
-     * Note: Firestore doesn't support full-text search natively, so we fetch all and filter
+     * Note: Firestore doesn't support full-text search natively.
+     * For production, consider using Algolia, Elasticsearch, or Firestore's array-contains
+     * with tokenized fields for better performance. Current implementation fetches all
+     * products and filters client-side, which is acceptable for small datasets but
+     * inefficient for large catalogs.
      */
     fun searchProducts(query: String): Flow<Resource<List<Product>>> = callbackFlow {
         trySend(Resource.Loading())
