@@ -49,6 +49,12 @@ class ProductRepository(
     
     /**
      * Search products by name
+     * Note: For better performance with large catalogs, consider implementing:
+     * - Firestore composite queries with indexes
+     * - Algolia or ElasticSearch for full-text search
+     * - Server-side filtering with Cloud Functions
+     * Current implementation fetches all products and filters client-side,
+     * which is suitable for small to medium catalogs (< 1000 products)
      */
     suspend fun searchProducts(query: String): Result<List<Product>> {
         return try {

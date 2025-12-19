@@ -22,6 +22,8 @@ class OrderViewModel(
     private val _userOrders = MutableStateFlow<List<Order>>(emptyList())
     val userOrders: StateFlow<List<Order>> = _userOrders.asStateFlow()
     
+    private var currentUserId: String? = null
+    
     /**
      * Create new order
      */
@@ -44,6 +46,7 @@ class OrderViewModel(
      * Load user orders
      */
     fun loadUserOrders(userId: String) {
+        currentUserId = userId
         viewModelScope.launch {
             _ordersState.value = OrdersState.Loading
             val result = orderRepository.getUserOrders(userId)
@@ -66,8 +69,8 @@ class OrderViewModel(
         viewModelScope.launch {
             val result = orderRepository.updateOrderStatus(orderId, status)
             if (result.isSuccess) {
-                // Reload orders after update
-                _userOrders.value.firstOrNull()?.userId?.let { userId ->
+                // Reload orders after update if we have a userId
+                currentUserId?.let { userId ->
                     loadUserOrders(userId)
                 }
             }

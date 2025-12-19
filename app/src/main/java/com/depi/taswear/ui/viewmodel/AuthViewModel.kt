@@ -71,7 +71,7 @@ class AuthViewModel(
     /**
      * Create new account
      */
-    fun signUp(email: String, password: String) {
+    fun signUp(email: String, password: String, role: String = "customer") {
         if (email.isBlank() || password.isBlank()) {
             _authState.value = AuthState.Error("Email and password cannot be empty")
             return
@@ -84,7 +84,7 @@ class AuthViewModel(
         
         viewModelScope.launch {
             _authState.value = AuthState.Loading
-            val result = authRepository.signUp(email, password)
+            val result = authRepository.signUp(email, password, role)
             
             _authState.value = if (result.isSuccess) {
                 val user = result.getOrNull()!!
