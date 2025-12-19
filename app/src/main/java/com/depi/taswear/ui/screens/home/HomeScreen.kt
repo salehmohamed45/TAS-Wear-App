@@ -12,7 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.depi.taswear.ui.components.ProductCard
 import com.depi.taswear.util.Resource
 
@@ -21,7 +21,7 @@ import com.depi.taswear.util.Resource
 fun HomeScreen(
     onProductClick: (String) -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: HomeViewModel = hiltViewModel()
+    viewModel: HomeViewModel = viewModel()
 ) {
     val featuredProducts by viewModel.featuredProducts.collectAsState()
 

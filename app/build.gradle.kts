@@ -2,9 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.compose")
-    id("com.google.dagger.hilt.android")
     id("com.google.gms.google-services")
-    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
@@ -70,11 +68,6 @@ dependencies {
 
     // Navigation
     implementation(libs.androidx.navigation.compose)
-
-    // Hilt
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
-    implementation(libs.hilt.navigation.compose)
 
     // Firebase
     implementation(platform(libs.firebase.bom))

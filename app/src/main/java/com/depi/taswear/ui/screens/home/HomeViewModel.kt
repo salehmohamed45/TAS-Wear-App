@@ -5,16 +5,13 @@ import androidx.lifecycle.viewModelScope
 import com.depi.taswear.data.model.Product
 import com.depi.taswear.data.repository.ProductRepository
 import com.depi.taswear.util.Resource
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-@HiltViewModel
-class HomeViewModel @Inject constructor(
-    private val productRepository: ProductRepository
+class HomeViewModel(
+    private val productRepository: ProductRepository = ProductRepository()
 ) : ViewModel() {
 
     private val _featuredProducts = MutableStateFlow<Resource<List<Product>>>(Resource.Loading())

@@ -8,12 +8,9 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.tasks.await
-import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
-class ProductRepository @Inject constructor(
-    private val firestore: FirebaseFirestore
+class ProductRepository(
+    private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 ) {
     private val productsCollection = firestore.collection("products")
 
