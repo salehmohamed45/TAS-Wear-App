@@ -135,11 +135,13 @@ class ProductRepository @Inject constructor(
 
     /**
      * Get featured products for home screen
+     * Filters by isFeatured field and limits to FEATURED_PRODUCTS_LIMIT
      */
     fun getFeaturedProducts(): Flow<Resource<List<Product>>> = callbackFlow {
         trySend(Resource.Loading())
 
         val listenerRegistration = productsCollection
+            .whereEqualTo("isFeatured", true)
             .orderBy("createdAt", Query.Direction.DESCENDING)
             .limit(FEATURED_PRODUCTS_LIMIT)
             .addSnapshotListener { snapshot, error ->
