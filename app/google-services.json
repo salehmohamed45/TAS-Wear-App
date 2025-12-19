@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1073955112622",
+    "project_id": "tas-collection",
+    "storage_bucket": "tas-collection.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1073955112622:android:f753b5e7e6c4eb60c70f3f",
+        "android_client_info": {
+          "package_name": "Saleh.TASCollection"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAep0PscWfg2hxTgJNQlYE18J1E8N549vk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
