@@ -18,6 +18,8 @@ import coil.compose.AsyncImage
 import com.depi.taswear.data.model.Product
 import com.depi.taswear.ui.theme.AccentColor
 
+private const val LOW_STOCK_THRESHOLD = 5
+
 @Composable
 fun ProductCard(
     product: Product,
@@ -100,7 +102,7 @@ fun ProductCard(
                                 )
                             }
                         }
-                        product.stock < 5 -> {
+                        product.stock < LOW_STOCK_THRESHOLD -> {
                             Surface(
                                 shape = RoundedCornerShape(4.dp),
                                 color = AccentColor.copy(alpha = 0.1f)

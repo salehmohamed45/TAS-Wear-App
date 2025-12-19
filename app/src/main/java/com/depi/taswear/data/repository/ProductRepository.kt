@@ -17,6 +17,10 @@ class ProductRepository @Inject constructor(
 ) {
     private val productsCollection = firestore.collection("products")
 
+    companion object {
+        private const val FEATURED_PRODUCTS_LIMIT = 10L
+    }
+
     /**
      * Fetch all products from Firestore, ordered by createdAt descending
      */
@@ -130,14 +134,14 @@ class ProductRepository @Inject constructor(
     }
 
     /**
-     * Get top 10 featured products for home screen
+     * Get featured products for home screen
      */
     fun getFeaturedProducts(): Flow<Resource<List<Product>>> = callbackFlow {
         trySend(Resource.Loading())
 
         val listenerRegistration = productsCollection
             .orderBy("createdAt", Query.Direction.DESCENDING)
-            .limit(10)
+            .limit(FEATURED_PRODUCTS_LIMIT)
             .addSnapshotListener { snapshot, error ->
                 if (error != null) {
                     trySend(Resource.Error(error.message ?: "Unknown error occurred"))

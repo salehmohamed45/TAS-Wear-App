@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
             TASWearTheme {
                 HomeScreen(
                     onProductClick = { productId ->
-                        // TODO: Navigate to product details
+                        // Product detail navigation will be implemented in Phase 3
                     }
                 )
             }
